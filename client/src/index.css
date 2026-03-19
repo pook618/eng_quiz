@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Warm Supportive Learning Environment Design */
+  /* Primary: Sage Green - calming, academic, supportive */
+  --primary: #8b9d7a;
+  --primary-foreground: #faf8f3;
+  
+  /* Accent: Warm Coral - encouraging, energetic, friendly */
+  --accent: #d97760;
+  --accent-foreground: #faf8f3;
+  
+  /* Secondary: Soft Taupe - neutral, professional */
+  --secondary: #c4b5a0;
+  --secondary-foreground: #2c2c2c;
+  
+  /* Sidebar colors */
+  --sidebar-primary: #8b9d7a;
+  --sidebar-primary-foreground: #faf8f3;
+  
+  /* Chart colors (using warm palette) */
+  --chart-1: #8b9d7a;
+  --chart-2: #d97760;
+  --chart-3: #a8b89a;
+  --chart-4: #e8a89a;
+  --chart-5: #7a8c6a;
+  
+  /* Border radius - generous for warm feel */
+  --radius: 1rem;
+  
+  /* Background: Warm cream */
+  --background: #faf8f3;
+  --foreground: #2c2c2c;
+  
+  /* Card: Off-white with subtle warmth */
+  --card: #ffffff;
+  --card-foreground: #2c2c2c;
+  
+  /* Popover */
+  --popover: #ffffff;
+  --popover-foreground: #2c2c2c;
+  
+  /* Muted colors */
+  --muted: #e8e6e0;
+  --muted-foreground: #6b6b6b;
+  
+  /* Destructive: Warm red for alerts */
+  --destructive: #d97760;
+  --destructive-foreground: #faf8f3;
+  
+  /* Border and input */
+  --border: #e8e6e0;
+  --input: #f5f3ed;
+  --ring: #8b9d7a;
+  
+  /* Sidebar */
+  --sidebar: #faf8f3;
+  --sidebar-foreground: #2c2c2c;
+  --sidebar-accent: #e8e6e0;
+  --sidebar-accent-foreground: #8b9d7a;
+  --sidebar-border: #e8e6e0;
+  --sidebar-ring: #8b9d7a;
+}
+
+.dark {
+  --primary: #8b9d7a;
+  --primary-foreground: #faf8f3;
+  --sidebar-primary: #8b9d7a;
+  --sidebar-primary-foreground: #faf8f3;
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #2a2a2a;
+  --card-foreground: #f5f5f5;
+  --popover: #2a2a2a;
+  --popover-foreground: #f5f5f5;
+  --secondary: #c4b5a0;
+  --secondary-foreground: #f5f5f5;
+  --muted: #3a3a3a;
+  --muted-foreground: #b0b0b0;
+  --accent: #d97760;
+  --accent-foreground: #faf8f3;
+  --destructive: #d97760;
+  --destructive-foreground: #faf8f3;
+  --border: #3a3a3a;
+  --input: #2a2a2a;
+  --ring: #8b9d7a;
+  --chart-1: #8b9d7a;
+  --chart-2: #d97760;
+  --chart-3: #a8b89a;
+  --chart-4: #e8a89a;
+  --chart-5: #7a8c6a;
+  --sidebar: #2a2a2a;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-accent: #3a3a3a;
+  --sidebar-accent-foreground: #8b9d7a;
+  --sidebar-border: #3a3a3a;
+  --sidebar-ring: #8b9d7a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Warm Supportive Design Components */
+  .quiz-card {
+    @apply bg-card text-card-foreground rounded-2xl shadow-sm transition-all duration-300;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .quiz-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .quiz-button {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300;
+  }
+
+  .quiz-button:hover:not(:disabled) {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+
+  .quiz-button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .quiz-option {
+    @apply w-full p-4 rounded-xl border-2 border-border text-left transition-all duration-200 cursor-pointer;
+  }
+
+  .quiz-option:hover {
+    @apply border-primary bg-primary/5;
+  }
+
+  .quiz-option.selected {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+
+  .quiz-progress-circle {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300;
+    background: linear-gradient(135deg, #f5f3ed 0%, #ffffff 100%);
+    border: 2px solid #e8e6e0;
+  }
+
+  .quiz-progress-circle.completed {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+
+  .quiz-progress-circle.current {
+    @apply border-primary text-primary;
+    box-shadow: 0 0 0 3px rgba(139, 157, 122, 0.1);
+  }
+}
